@@ -27,14 +27,12 @@ docker-compose down
 
 ## Application
 
-The application is a simple API build with NodeJS that uses Redis as a cache. The API has two routes:
+This API allows you to manage tags using Redis. It supports the following operations:
 
-- `POST /`: Set a key-value pair in the cache with different types of data
-  - `key`: The key to be stored in the cache
-  - `value`: The value to be stored in the cache
-  - `type`: The type of the value to be stored in the cache. The possible values are: `string`, `list`, `set`, `hash`
-  - `expire`: The time in seconds that the key will be stored in the cache
-- `GET /:key`: Get the value of a key in the cache
-- `DEL /:key`: Delete a key in the cache.
+- `POST /tags`: Add a new tag.
+- `GET /tags`: Retrieve all tags or search by prefix.
+- `DELETE /tags/:tag`: Remove a specific tag.
+
+You can test the API using tools like Postman, Insomnia, or the REST Client extension in VS Code.
 
 > You can test the API using the `Postman` or `Insomnia` tools, or use `rest-client` extension in Visual Studio Code and use the `requests.rest` file in the project.
