@@ -1,0 +1,31 @@
+services:
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    volumes:
+      - './src:/home/node/app/src/:ro'
+      - './package.json:/home/node/app/package.json'
+      - './node_modules:/home/node/app/node_modules'
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6378:6379'
+    command: ['redis-server', '--requirepass', 'password']
+    volumes:
+      - 'nodejs-redis-data:/data'
+    restart: always
+
+volumes:
+  nodejs-redis-data:
+
+networks:
+  nodejs-redis-net:
+    driver: bridge
