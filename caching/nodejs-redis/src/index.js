@@ -40,6 +40,30 @@ app.post('/tags', async (req, res) => {
   }
 });
 
+// Get tags
+app.get('/tags', async (req, res) => {
+  const { prefix } = req.query;
+
+  let tags = [];
+
+  try {
+    tags = await redisClient.sMembers('tags');
+
+    if (prefix) {
+      tags = tags.filter((tag) => tag.startsWith(prefix));
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: 'Error retrieving tags', error });
+  }
+
+  res.status(200).json({
+    success: true,
+    tags,
+  });
+});
+
 // Start the server and connect to Redis
 app.listen(PORT, async () => {
   try {
