@@ -15,6 +15,11 @@ const redisClient = createClient({
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Set default route
+app.get('/', (_, res) => {
+  res.status(200).json({ success: true, message: 'App is up and running' });
+});
+
 // Start the server and connect to Redis
 app.listen(PORT, async () => {
   try {
