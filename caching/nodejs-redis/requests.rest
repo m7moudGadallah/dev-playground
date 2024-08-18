@@ -19,3 +19,6 @@ GET {{baseUrl}}/tags
 
 #### GET Request to get tag by prefix
 GET {{baseUrl}}/tags?prefix=No
+
+#### DELETE Request to delete tag by tag name
+DELETE {{baseUrl}}/tags/Python
