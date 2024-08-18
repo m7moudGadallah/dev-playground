@@ -12,3 +12,10 @@ Content-Type: application/json
 {
     "tag": "Node.js"
 }
+
+#### GET Request to get all tags
+GET {{baseUrl}}/tags
+
+
+#### GET Request to get tag by prefix
+GET {{baseUrl}}/tags?prefix=No
