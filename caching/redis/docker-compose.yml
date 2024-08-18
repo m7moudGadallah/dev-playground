@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "password"]
+    volumes:
+      - "redis-data:/data"
+    restart: always
+
+volumes:
+  redis-data:
