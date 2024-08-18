@@ -12,6 +12,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 ### CACHING
 
 - [Redis Caching](./caching/redis/)
+- [NodeJS with Redis](./caching/nodejs-redis/)
 
 ## LICENSE
 
