@@ -9,7 +9,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [Dockerize Simple NodeJS App](./containerization/dockerize-nodejs-app/)
 - [Dockerize Multi-Staged NodeJS App](./containerization/dockerize-multi-staged-nodejs-app/)
 
-## CACHING
+### CACHING
 
 - [Redis Caching](./caching/redis/)
 
