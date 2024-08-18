@@ -64,6 +64,31 @@ app.get('/tags', async (req, res) => {
   });
 });
 
+// Delete tag
+app.delete('/tags/:tag', async (req, res) => {
+  const { tag } = req.params;
+
+  if (!tag) {
+    return res.status(400).json({ success: false, message: 'Tag is required' });
+  }
+
+  try {
+    const removed = await redisClient.sRem('tags', tag);
+
+    if (removed === 0) {
+      return res
+        .status(404)
+        .json({ success: false, message: `Tag "${tag}" not found` });
+    }
+
+    res.status(200).json({ success: true, message: `Tag "${tag}" deleted` });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: 'Error deleting tag', error });
+  }
+});
+
 // Start the server and connect to Redis
 app.listen(PORT, async () => {
   try {
