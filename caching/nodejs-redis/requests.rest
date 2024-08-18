@@ -3,3 +3,12 @@
 
 #### GET Request to the root endpoint
 GET {{baseUrl}}/
+
+
+#### POST Request to create new tag
+POST {{baseUrl}}/tags
+Content-Type: application/json
+
+{
+    "tag": "Node.js"
+}
