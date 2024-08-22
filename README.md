@@ -17,6 +17,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 ### PAYMENT GATEWAYS
 
 - [Play with Stripe CLI](./payment-gateways/play-with-stripe-cli/)
+- [NodeJs Stripe Checkout Session Demo](./payment-gateways/nodes-stripe-checkout-session-demo/)
 
 ## LICENSE
 
