@@ -1,0 +1,23 @@
+@URL=http://localhost:3000
+
+### PING SERVER
+GET {{URL}}/
+
+### CREATE CHECKOUT SESSION
+POST {{URL}}/create-checkout-session
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "name": "product1",
+      "price": "100",
+      "quantity": 1
+    },
+    {
+      "name": "product2",
+      "price": "200",
+      "quantity": 2
+    }
+  ]
+}

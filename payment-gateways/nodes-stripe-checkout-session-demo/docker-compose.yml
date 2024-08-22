@@ -1,0 +1,30 @@
+services:
+  # NodeJS App
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    volumes:
+      - './node_modules:/home/node/app/node_modules'
+      - '.:/home/node/app:ro'
+    networks:
+      - stripe-checkout-demo-net
+    depends_on:
+      - stripe-cli
+  
+  # Stripe CLI
+  stripe-cli:
+    image: stripe/stripe-cli
+    command: listen --forward-to ${STRIPE_WEBHOOK_URL}
+    env_file:
+      - .env
+    networks:
+      - stripe-checkout-demo-net
+
+networks:
+  stripe-checkout-demo-net:
