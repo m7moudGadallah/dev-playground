@@ -18,6 +18,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 
 - [Play with Stripe CLI](./payment-gateways/play-with-stripe-cli/)
 - [NodeJs Stripe Checkout Session Demo](./payment-gateways/nodes-stripe-checkout-session-demo/)
+- [NodeJs Stripe Payment Intent Demo](./payment-gateways/nodejs-stripe-payment-intent-demo/)
 
 ## LICENSE
 
