@@ -14,6 +14,10 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [Redis Caching](./caching/redis/)
 - [NodeJS with Redis](./caching/nodejs-redis/)
 
+### PAYMENT GATEWAYS
+
+- [Play with Stripe CLI](./payment-gateways/play-with-stripe-cli/)
+
 ## LICENSE
 
 This repo is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
