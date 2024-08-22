@@ -1,0 +1,48 @@
+services:
+  # Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - "./backend/node_modules:/home/node/app/node_modules"
+      - "./backend:/home/node/app:ro"
+    networks:
+      - stripe-payment-demo-net
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - "./frontend/node_modules:/home/node/app/node_modules"
+      - "./frontend:/home/node/app:ro"
+    networks:
+      - stripe-payment-demo-net
+    depends_on:
+      - stripe-cli
+      - backend
+
+  # Stripe CLI
+  stripe-cli:
+    image: stripe/stripe-cli
+    command: listen --forward-to ${STRIPE_WEBHOOK_URL} --api-key ${STRIPE_API_KEY}
+    env_file:
+      - ./backend/.env
+    networks:
+      - stripe-payment-demo-net
+    depends_on:
+      - backend
+
+networks:
+  stripe-payment-demo-net:

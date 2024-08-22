@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stripe Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <h1>Checkout</h1>
+
+    <!-- Create a placeholder for the card input form -->
+    <form id="payment-form">
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+      <button id="checkout-button">Pay</button>
+      <div id="card-errors" role="alert"></div>
+    </form>
+
+    <script>
+      const stripe = Stripe('<%= publicKey %>');
+
+      // Create an instance of Elements
+      const elements = stripe.elements();
+
+      // Create an instance of the card Element
+      const card = elements.create('card');
+
+      // Add an instance of the card Element into the `card-element` div
+      card.mount('#card-element');
+
+      // Handle form submission
+      document
+        .getElementById('payment-form')
+        .addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          const response = await fetch('<%= createPaymentIntentEndpoint %>', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount: 1000 }), // Wrap order in an object
+          });
+
+          if (response.ok) {
+            const { data } = await response.json();
+            const { clientSecret } = data.paymentIntent;
+
+            const result = await stripe.confirmCardPayment(clientSecret, {
+              payment_method: {
+                card: card, // Pass the card element here
+              },
+            });
+
+            if (result.error) {
+              // Show error to your customer (e.g., insufficient funds)
+              console.error(result.error.message);
+              document.getElementById('card-errors').textContent =
+                result.error.message;
+            } else {
+              if (result.paymentIntent.status === 'succeeded') {
+                window.location.href = '/success';
+              } else {
+                window.location.href = '/cancel';
+              }
+            }
+          } else {
+            console.error('Failed to create payment intent');
+            console.error(response);
+          }
+        });
+    </script>
+  </body>
+</html>
