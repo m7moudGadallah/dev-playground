@@ -1,0 +1,39 @@
+services:
+  # NodeJS App
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "5555:5555" # prisma studio
+    env_file:
+      - .env
+    volumes:
+      - "./node_modules:/home/node/app/node_modules"
+      - ".:/home/node/app"
+    networks:
+      - threaded-comments-api-net
+    depends_on:
+      - postgres
+  
+  # Postgres Database
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: demo
+      POSTGRES_USER: postgres
+    ports:
+      - "5431:5432"
+    volumes:
+      - "threaded-comments-postgres-data:/var/lib/postgresql/data"
+    networks:
+      - threaded-comments-api-net
+
+networks:
+  threaded-comments-api-net:
+
+volumes:
+  threaded-comments-postgres-data:

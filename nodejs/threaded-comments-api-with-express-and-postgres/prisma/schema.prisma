@@ -1,0 +1,36 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  message   String
+  postId    Int
+  parentId  Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  parent    Comment?  @relation("ThreadedComments", fields: [parentId], references: [id])
+  children  Comment[] @relation("ThreadedComments")
+
+  @@map("comments")
+}
+
+view ThreadedCommentView {
+  id           Int      @id
+  message      String
+  postId       Int
+  parentId     Int?
+  createdAt    DateTime
+  updatedAt    DateTime
+  level        Int
+  repliesCount Int
+
+  @@map("threaded_comments_vw")
+}
+  

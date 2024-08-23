@@ -1,0 +1,19 @@
+@URL=http://localhost:3000
+
+### Ping Server
+GET {{URL}}
+
+### GET all comments
+GET {{URL}}/api/comments
+
+### Get Post1 comments
+GET {{URL}}/api/comments?postId=1
+
+### GET Post1 comments in level 0
+GET {{URL}}/api/comments?postId=1&level=0
+
+### GET Post1 comments in level 1
+GET {{URL}}/api/comments?postId=1&level=1
+
+### GET Comment 2
+GET {{URL}}/api/comments?id=2

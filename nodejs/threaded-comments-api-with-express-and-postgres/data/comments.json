@@ -1,0 +1,183 @@
+[
+  {
+    "id": 1,
+    "message": "This is the first root comment",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 2,
+    "message": "This is the second root comment",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 3,
+    "message": "This is a reply to the first comment",
+    "postId": 1,
+    "parentId": 1
+  },
+  {
+    "id": 4,
+    "message": "This is another reply to the first comment",
+    "postId": 1,
+    "parentId": 1
+  },
+  {
+    "id": 5,
+    "message": "This is a reply to the second comment",
+    "postId": 1,
+    "parentId": 2
+  },
+  {
+    "id": 6,
+    "message": "This is a second-level reply",
+    "postId": 1,
+    "parentId": 3
+  },
+  {
+    "id": 7,
+    "message": "This is a third-level reply",
+    "postId": 1,
+    "parentId": 6
+  },
+  {
+    "id": 8,
+    "message": "Yet another root comment",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 9,
+    "message": "Reply to yet another root comment",
+    "postId": 1,
+    "parentId": 8
+  },
+  {
+    "id": 10,
+    "message": "Another root comment",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 11,
+    "message": "Reply to another root comment",
+    "postId": 1,
+    "parentId": 10
+  },
+  {
+    "id": 12,
+    "message": "Second-level reply to another root comment",
+    "postId": 1,
+    "parentId": 11
+  },
+  {
+    "id": 13,
+    "message": "Root comment without replies",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 14,
+    "message": "Root comment with one reply",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 15,
+    "message": "Reply to root comment with one reply",
+    "postId": 1,
+    "parentId": 14
+  },
+  {
+    "id": 16,
+    "message": "Another reply to the second comment",
+    "postId": 1,
+    "parentId": 2
+  },
+  {
+    "id": 17,
+    "message": "Another reply to the first comment",
+    "postId": 1,
+    "parentId": 1
+  },
+  {
+    "id": 18,
+    "message": "Root comment with multiple replies",
+    "postId": 1,
+    "parentId": null
+  },
+  {
+    "id": 19,
+    "message": "First reply to the root comment with multiple replies",
+    "postId": 1,
+    "parentId": 18
+  },
+  {
+    "id": 20,
+    "message": "Second reply to the root comment with multiple replies",
+    "postId": 1,
+    "parentId": 18
+  },
+
+  {
+    "id": 21,
+    "message": "First root comment for post 2",
+    "postId": 2,
+    "parentId": null
+  },
+  {
+    "id": 22,
+    "message": "Second root comment for post 2",
+    "postId": 2,
+    "parentId": null
+  },
+  {
+    "id": 23,
+    "message": "Reply to first comment for post 2",
+    "postId": 2,
+    "parentId": 21
+  },
+  {
+    "id": 24,
+    "message": "Reply to second comment for post 2",
+    "postId": 2,
+    "parentId": 22
+  },
+  {
+    "id": 25,
+    "message": "Second-level reply to first comment for post 2",
+    "postId": 2,
+    "parentId": 23
+  },
+  {
+    "id": 26,
+    "message": "Third-level reply to first comment for post 2",
+    "postId": 2,
+    "parentId": 25
+  },
+  {
+    "id": 27,
+    "message": "Another root comment for post 2",
+    "postId": 2,
+    "parentId": null
+  },
+  {
+    "id": 28,
+    "message": "Reply to another root comment for post 2",
+    "postId": 2,
+    "parentId": 27
+  },
+  {
+    "id": 29,
+    "message": "Another reply to the first root comment for post 2",
+    "postId": 2,
+    "parentId": 21
+  },
+  {
+    "id": 30,
+    "message": "Yet another comment for post 2",
+    "postId": 2,
+    "parentId": null
+  }
+]
