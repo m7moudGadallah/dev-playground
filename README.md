@@ -20,6 +20,10 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [NodeJs Stripe Checkout Session Demo](./payment-gateways/nodes-stripe-checkout-session-demo/)
 - [NodeJs Stripe Payment Intent Demo](./payment-gateways/nodejs-stripe-payment-intent-demo/)
 
+### NODEJS
+
+- [Threaded Comments API with ExpressJS and PostgreSQL](./nodejs/threaded-comments-api-with-express-and-postgres/)
+
 ## LICENSE
 
 This repo is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
