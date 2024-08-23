@@ -24,6 +24,12 @@ A personal repo for experimenting with new technologies, building demos, and pra
 
 - [Threaded Comments API with ExpressJS and PostgreSQL](./nodejs/threaded-comments-api-with-express-and-postgres/)
 
+### DATABASES
+
+#### POSTGRES
+
+- [Play with Postgres](./databases/postgres/play-with-postgres/)
+
 ## LICENSE
 
 This repo is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
