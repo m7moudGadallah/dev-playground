@@ -1,0 +1,39 @@
+services:
+  # NodeJS App
+  restaurant-search-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000' # App Port
+      - '5555:5555' # prisma studio Port
+    env_file:
+      - .env
+    volumes:
+      - './node_modules:/home/node/app/node_modules'
+      - '.:/home/node/app'
+    networks:
+      - restaurant-search-app-net
+    depends_on:
+      - postgres
+
+  # Postgres Database
+  postgres:
+    image: postgis/postgis:15-3.3
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: restaurantdb
+    ports:
+      - '5434:5432' # Postgres Port
+    volumes:
+      - 'restaurant-search-app-data:/var/lib/postgresql/data'
+    networks:
+      - restaurant-search-app-net
+
+networks:
+  restaurant-search-app-net:
+
+volumes:
+  restaurant-search-app-data:

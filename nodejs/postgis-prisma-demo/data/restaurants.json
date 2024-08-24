@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Central Perk",
+    "description": "A cozy cafe in the heart of New York City, famous for its ambiance and coffee.",
+    "location": {
+      "latitude": 40.730610,
+      "longitude": -73.935242
+    }
+  },
+  {
+    "name": "The French Laundry",
+    "description": "An upscale French restaurant in California's Napa Valley known for its fine dining.",
+    "location": {
+      "latitude": 38.404274,
+      "longitude": -122.364738
+    }
+  },
+  {
+    "name": "Joe's Pizza",
+    "description": "A legendary pizza joint in New York City offering classic New York-style pizza.",
+    "location": {
+      "latitude": 40.730610,
+      "longitude": -74.000898
+    }
+  },
+  {
+    "name": "Taco Loco",
+    "description": "A popular Mexican restaurant serving authentic tacos and burritos in Los Angeles.",
+    "location": {
+      "latitude": 34.052235,
+      "longitude": -118.243683
+    }
+  },
+  {
+    "name": "Sushi Nakazawa",
+    "description": "A top-tier sushi restaurant in Washington D.C., offering an omakase experience.",
+    "location": {
+      "latitude": 38.895110,
+      "longitude": -77.036370
+    }
+  }
+]

@@ -1,0 +1,10 @@
+@URL=http://localhost:3000
+
+### Ping Server
+GET {{URL}}
+
+### Retrieve all resutaurants
+GET {{URL}}/api/restaurants
+
+### Retrieve all restaurants within a 5km radius of a given location
+GET {{URL}}/api/restaurants/within?latitude=40.730610&longitude=-73.935242&radius=10000
