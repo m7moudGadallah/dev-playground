@@ -23,6 +23,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 ### NODEJS
 
 - [Threaded Comments API with ExpressJS and PostgreSQL](./nodejs/threaded-comments-api-with-express-and-postgres/)
+- [POSTGIS with Prisma](./nodejs/postgis-prisma-demo/)
 
 ### DATABASES
 
