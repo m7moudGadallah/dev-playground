@@ -1,0 +1,29 @@
+services:
+  # NodeJS App
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '4000:4000' # App Port
+    env_file:
+      - .env
+    volumes:
+      - './node_modules:/home/node/app/node_modules'
+      - '.:/home/node/app'
+    networks:
+      - mailhog-demo-net
+    depends_on:
+      - mailhog
+
+  # SMTP Server
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - '1025:1025' # SMTP Port
+      - '8025:8025' # Web UI Port
+    networks:
+      - mailhog-demo-net
+
+networks:
+  mailhog-demo-net:
