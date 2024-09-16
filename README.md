@@ -25,6 +25,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [Threaded Comments API with ExpressJS and PostgreSQL](./nodejs/threaded-comments-api-with-express-and-postgres/)
 - [POSTGIS with Prisma](./nodejs/postgis-prisma-demo/)
 - [MailHog, NodeMailer Demo](./nodejs/mailhog-nodemailer-demo/)
+- [Logging Demo With Winston And MongoDB](./nodejs/logging-with-winston-and-mongo/)
 
 ### DATABASES
 
