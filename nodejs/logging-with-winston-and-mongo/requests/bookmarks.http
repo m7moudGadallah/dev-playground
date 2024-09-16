@@ -1,0 +1,22 @@
+@URL=http://localhost:3000
+
+### get bookmarks
+GET {{URL}}/api/v1/bookmarks
+
+### create a bookmark
+POST {{URL}}/api/v1/bookmarks
+Content-Type: application/json
+
+{
+    "title": "Google",
+    "url": "https://www.google.com"
+}
+
+### create a bookmark
+POST {{URL}}/api/v1/bookmarks
+Content-Type: application/json
+
+{
+    "title": "Google",
+    "url": "h"
+}

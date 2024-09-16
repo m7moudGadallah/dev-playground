@@ -1,0 +1,27 @@
+{
+  "name": "logging-with-winston-and-mongo",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx dotenv -e .env nodemon"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.5.5",
+    "@types/validator": "^13.12.1",
+    "dotenv-cli": "^7.4.2",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "validator": "^13.12.0",
+    "winston": "^3.14.2",
+    "winston-mongodb": "^5.1.1"
+  }
+}
