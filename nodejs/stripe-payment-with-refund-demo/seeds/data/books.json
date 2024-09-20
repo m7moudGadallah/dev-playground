@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1231",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "publishedDate": "1925-04-10",
+    "genre": "Fiction",
+    "price": 10.99,
+    "stock": 30,
+    "description": "A classic novel set in the Jazz Age that explores themes of wealth, love, and the American Dream."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1232",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "publishedDate": "1960-07-11",
+    "genre": "Fiction",
+    "price": 7.99,
+    "stock": 25,
+    "description": "A story of racial injustice and moral growth in the deep South, as seen through the eyes of a young girl."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1233",
+    "title": "1984",
+    "author": "George Orwell",
+    "publishedDate": "1949-06-08",
+    "genre": "Dystopian",
+    "price": 8.99,
+    "stock": 40,
+    "description": "A dystopian novel that explores a totalitarian regime and the dangers of surveillance and censorship."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1234",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "publishedDate": "1813-01-28",
+    "genre": "Romance",
+    "price": 6.99,
+    "stock": 20,
+    "description": "A romantic novel that explores themes of love, reputation, and class distinction in 19th-century England."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1235",
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "publishedDate": "1951-07-16",
+    "genre": "Fiction",
+    "price": 9.99,
+    "stock": 35,
+    "description": "A coming-of-age story about teenage alienation and rebellion, centered on the life of Holden Caulfield."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1236",
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "publishedDate": "1851-10-18",
+    "genre": "Adventure",
+    "price": 12.5,
+    "stock": 15,
+    "description": "The epic tale of Captain Ahab's obsessive quest to seek revenge on the white whale Moby Dick."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1237",
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "publishedDate": "1869-03-05",
+    "genre": "Historical Fiction",
+    "price": 14.99,
+    "stock": 10,
+    "description": "A historical epic that intertwines the lives of several characters during the Napoleonic Wars in Russia."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1238",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "publishedDate": "1937-09-21",
+    "genre": "Fantasy",
+    "price": 11.5,
+    "stock": 50,
+    "description": "A fantasy adventure following Bilbo Baggins on his journey to reclaim treasure guarded by a dragon."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1239",
+    "title": "The Odyssey",
+    "author": "Homer",
+    "publishedDate": "-800",
+    "genre": "Epic",
+    "price": 9.5,
+    "stock": 25,
+    "description": "An epic poem recounting the adventures of Odysseus as he returns home from the Trojan War."
+  },
+  {
+    "_id": "64eabc1f9a3f4b1f2c9b1240",
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "publishedDate": "1818-01-01",
+    "genre": "Horror",
+    "price": 7.5,
+    "stock": 20,
+    "description": "A Gothic horror novel about a scientist who creates a living being, with tragic consequences."
+  }
+]

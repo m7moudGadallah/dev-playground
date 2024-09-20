@@ -1,0 +1,46 @@
+services:
+  # Node.js
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    volumes:
+      - './node_modules:/home/node/app/node_modules'
+      - '.:/home/node/app'
+    networks:
+      - my-net
+    depends_on:
+      - mongo
+
+  # MognoDB
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - stripe-payment-mongo-demo-data:/data/db
+    networks:
+      - my-net
+
+  # Stripe CLI
+  stripe-cli:
+    image: stripe/stripe-cli
+    command: listen --forward-to ${STRIPE_WEBHOOK_URL}
+    env_file:
+      - .env
+    networks:
+      - my-net
+
+networks:
+  my-net:
+
+volumes:
+  stripe-payment-mongo-demo-data:

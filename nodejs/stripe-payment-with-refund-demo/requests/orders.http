@@ -1,0 +1,24 @@
+@URL=http://localhost:3000/api/v1/orders
+
+### Create Order
+POST {{URL}}/
+Content-Type: application/json
+
+{
+    "customerId": "64eabc1f9a3f4b1f2c9b1001",
+    "items": [
+        {
+            "bookId": "64eabc1f9a3f4b1f2c9b1231",
+            "quantity": 3
+        }
+    ]
+}
+
+
+### Cancel Order
+POST {{URL}}/cancel
+Content-Type: application/json
+
+{
+    "orderId": "66ed10b18959c79d7e3cf091"
+}

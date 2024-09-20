@@ -1,0 +1,4 @@
+@URL=http://localhost:3000/api/v1/books
+
+### Get all books
+GET {{URL}}
