@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  node:
+    build: .
+    environment:
+      - INSTANCE_ID=node-$${HOSTNAME}
+    volumes:
+      - ./src:/app/src
+      - .env:/app/.env
+    depends_on:
+      - redis
+    command: sh -c "export INSTANCE_ID=node-$$(hostname) && npm start"

@@ -1,0 +1,22 @@
+{
+  "name": "distributed-lock-demo",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "dotenv -- nodemon src/server.js",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv-cli": "^8.0.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "redis": "^5.5.6"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
