@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  mongo-init-replica:
+    image: mongo:5.0
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    command: >
+      bash -c "
+      echo 'Waiting for MongoDB instances to start...';
+      sleep 20;
+      mongosh --host mongo1 --eval 'rs.initiate({
+        _id: \"rs0\",
+        members: [
+          { _id: 0, host: \"mongo1:27017\" },
+          { _id: 1, host: \"mongo2:27017\" },
+          { _id: 2, host: \"mongo3:27017\" }
+        ]
+      })';
+      mongosh --host mongo1 --eval 'rs.status()';
+      echo 'Replica set initialized';
+      "
+    networks:
+      - default
+
+  mongo1:
+    image: mongo:5.0
+    command: mongod --replSet rs0 --bind_ip_all
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo1_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mongo2:
+    image: mongo:5.0
+    command: mongod --replSet rs0 --bind_ip_all
+    volumes:
+      - mongo2_data:/data/db
+    depends_on:
+      - mongo1
+
+  mongo3:
+    image: mongo:5.0
+    command: mongod --replSet rs0 --bind_ip_all
+    volumes:
+      - mongo3_data:/data/db
+    depends_on:
+      - mongo1
+
+  app:
+    build: .
+    depends_on:
+      mongo-init-replica:
+        condition: service_completed_successfully
+    environment:
+      - MONGODB_URI=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/locktest?replicaSet=rs0
+      - MAX_RETRY_ATTEMPTS=30
+      - RETRY_DELAY_MS=5000
+    deploy:
+      replicas: 3
+
+volumes:
+  mongo1_data:
+  mongo2_data:
+  mongo3_data:
