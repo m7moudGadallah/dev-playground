@@ -10,10 +10,10 @@ const api = Router();
 const paymentApi = createAxiosBreaker(
   {
     failureThreshold: 50,          // % failures in window to trip
-    windowDuration: 10_000,        // ms
+    windowDuration: 500_000,        // ms
     minimumRequests: 10,           // minimum sample size
     halfOpenMaxSuccesses: 2,       // probes to close
-    halfOpenMaxConcurrent: 1,      // limit probes
+    halfOpenMaxConcurrent: 2,      // limit probes
     openStateDurations: [5_000, 10_000, 20_000], // backoff progression
     timeout: 2_000,                // ms per attempt
     shouldCountError: (err) => {
@@ -47,7 +47,7 @@ api.post('/checkout', async (_, res) => {
     res.json(payResponse.data);
   } catch (err) {
     const breaker = isCircuitBreakerError(err);
-    const status = breaker ? 503 : 500;
+    const status = breaker ? 503 : err?.response?.status;
     const upstreamMessage = err?.response?.data?.error || err?.response?.data || err.message;
     res.status(status).json({
       error: upstreamMessage,
