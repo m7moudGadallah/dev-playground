@@ -26,6 +26,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [POSTGIS with Prisma](./nodejs/postgis-prisma-demo/)
 - [MailHog, NodeMailer Demo](./nodejs/mailhog-nodemailer-demo/)
 - [Logging Demo With Winston And MongoDB](./nodejs/logging-with-winston-and-mongo/)
+- [Circuit Breaker](./nodejs/circuit-breaker)
 
 ### DATABASES
 
