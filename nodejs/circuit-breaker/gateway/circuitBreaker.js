@@ -243,6 +243,21 @@ class CircuitBreaker {
     this.ignoredErrors = this.ignoredErrors.filter(ts => ts >= windowStart);
   }
 
+  /**
+   * Ensure time-based state transitions and sliding windows are up to date.
+   * Used by metrics to reflect the state as it should be "right now", even if
+   * no new exec calls have been made recently.
+   * @param {number} [now=Date.now()]
+   * @private
+   */
+  _refreshRealtimeState(now = Date.now()) {
+    this._pruneWindows(now);
+
+    if (this.state === 'OPEN' && now - this.openedAt >= this._currentOpenDuration) {
+      this._transitionToHalfOpen();
+    }
+  }
+
   _open() {
     this.state = 'OPEN';
     this.openedAt = Date.now();
@@ -307,6 +322,7 @@ class CircuitBreaker {
   }
 
   getMetrics() {
+    this._refreshRealtimeState();
     const eligibleRequests = this._eligibleRequestsInWindow();
     return {
       state: this.state,
