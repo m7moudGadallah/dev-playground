@@ -71,5 +71,4 @@ api.post('/checkout', async (req, res) => {
   }
 });
 
-
 module.exports = { api };
