@@ -9,7 +9,9 @@ api.get('/health', (_, res) => {
   });
 });
 
-api.post('/pay', async (_, res) => {
+api.post('/pay', async (req, res) => {
+  const requestId = req.headers['x-request-id'] || 'unknown';
+
   const latencyRoll = Math.random();
   const errorRoll = Math.random();
 
@@ -31,6 +33,7 @@ api.post('/pay', async (_, res) => {
      5xx / infra errors
   ---------------------*/
   if (errorRoll < 0.10) {
+    console.log(`[pay] requestId=${requestId} -> 500 Internal server error`);
     return res.status(500).json({
       error: 'Internal server error',
       code: 'PAYMENT_INTERNAL_ERROR'
@@ -38,6 +41,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.18) {
+    console.log(`[pay] requestId=${requestId} -> 503 Service unavailable`);
     return res.status(503).json({
       error: 'Payment service unavailable',
       code: 'SERVICE_UNAVAILABLE'
@@ -45,6 +49,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.25) {
+    console.log(`[pay] requestId=${requestId} -> 504 Gateway timeout`);
     return res.status(504).json({
       error: 'Upstream timeout',
       code: 'GATEWAY_TIMEOUT'
@@ -55,6 +60,7 @@ api.post('/pay', async (_, res) => {
      4xx client errors
   ---------------------*/
   if (errorRoll < 0.35) {
+    console.log(`[pay] requestId=${requestId} -> 400 Invalid payment payload`);
     return res.status(400).json({
       error: 'Invalid payment payload',
       code: 'INVALID_REQUEST'
@@ -62,6 +68,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.42) {
+    console.log(`[pay] requestId=${requestId} -> 401 Unauthorized`);
     return res.status(401).json({
       error: 'Unauthorized',
       code: 'AUTH_REQUIRED'
@@ -69,6 +76,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.48) {
+    console.log(`[pay] requestId=${requestId} -> 403 Payment method blocked`);
     return res.status(403).json({
       error: 'Payment method blocked',
       code: 'PAYMENT_FORBIDDEN'
@@ -76,6 +84,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.54) {
+    console.log(`[pay] requestId=${requestId} -> 404 Customer not found`);
     return res.status(404).json({
       error: 'Customer not found',
       code: 'CUSTOMER_NOT_FOUND'
@@ -83,6 +92,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.60) {
+    console.log(`[pay] requestId=${requestId} -> 409 Duplicate transaction`);
     return res.status(409).json({
       error: 'Duplicate transaction',
       code: 'DUPLICATE_PAYMENT'
@@ -90,6 +100,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.66) {
+    console.log(`[pay] requestId=${requestId} -> 422 Insufficient funds`);
     return res.status(422).json({
       error: 'Insufficient funds',
       code: 'INSUFFICIENT_FUNDS'
@@ -97,6 +108,7 @@ api.post('/pay', async (_, res) => {
   }
 
   if (errorRoll < 0.72) {
+    console.log(`[pay] requestId=${requestId} -> 429 Too many requests`);
     return res.status(429).json({
       error: 'Too many requests',
       code: 'RATE_LIMIT_EXCEEDED',
@@ -107,6 +119,7 @@ api.post('/pay', async (_, res) => {
   /* --------------------
      Success
   ---------------------*/
+  console.log(`[pay] requestId=${requestId} -> 200 Payment successful`);
   return res.json({
     status: 'Payment successful',
     transactionId: `tx_${Date.now()}`
