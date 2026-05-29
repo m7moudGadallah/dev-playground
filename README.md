@@ -27,6 +27,7 @@ A personal repo for experimenting with new technologies, building demos, and pra
 - [MailHog, NodeMailer Demo](./nodejs/mailhog-nodemailer-demo/)
 - [Logging Demo With Winston And MongoDB](./nodejs/logging-with-winston-and-mongo/)
 - [Circuit Breaker](./nodejs/circuit-breaker)
+- [Gemini & Elasticsearch RAG (Retrieval-Augmented Generation) Backend](./nodejs/gemini-elasticsearch-rag/)
 
 ### DATABASES
 
