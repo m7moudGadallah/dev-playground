@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "8c593bfd-3843-43f1-b9a3-5c0836bf3042",
+    "name": "Gemini-Elasticsearch-RAG",
+    "description": "Postman collection for testing the Gemini & Elasticsearch RAG API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ingest Document",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Koshary is a traditional Egyptian dish made of rice, lentils, macaroni, and chickpeas, topped with spicy tomato sauce and crispy onions.\",\n  \"metadata\": \"koshary-intro\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/ingest",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ingest"
+          ]
+        },
+        "description": "Ingest text content, generate vector embedding using Gemini, and index it into Elasticsearch."
+      },
+      "response": []
+    },
+    {
+      "name": "Ask Question (RAG)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"How do I make Koshary and what are the main ingredients?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/ask",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ask"
+          ]
+        },
+        "description": "Ask a question using RAG. The system will search Elasticsearch for matching context using kNN and then send it to Gemini for generation."
+      },
+      "response": []
+    },
+    {
+      "name": "Server Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Retrieve the health status and uptime of the RAG backend server."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
